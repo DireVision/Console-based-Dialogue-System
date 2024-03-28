@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Jeremy",
+    "dialogue": [
+      {
+        "option": 0,
+        "text": "Hey there!",
+        "goto": 0
+      },
+      {
+        "option": 1,
+        "text": "Hey.",
+        "goto": 3
+      },
+      {
+        "option": 2,
+        "text": "Nice to meet you!",
+        "goto": 3
+      },
+      {
+        "option": 0,
+        "text": "I've never seen you around before.",
+        "goto": 0
+      },
+      {
+        "option": 0,
+        "text": "What's your name?",
+        "goto": 0
+      }
+    ]
+  }
+]
