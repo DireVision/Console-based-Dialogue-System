@@ -1,27 +1,25 @@
 #include "utils.h"
 
-bool g_running = true;
-
-void Exit()
+bool WaitForInput()
 {
-  g_running = false;
+  return _getch() == 48;
 }
 
-void PressAnyKeyToContinue()
+int SelectOption(int max)
 {
-  std::cout << "\n\n Press any key to continue...\n";
-  _getch();
-}
-
-int SelectDialogueOption(int max)
-{
-  std::cout << "\n\n Pick a dialogue option...\n";
   int option = 0;
 
-  // check if getch is a number
-  if (_getch() >= 48 && _getch() <= 57)
+  char ch = _getch();
+
+  // check if getch is 0
+  if (ch == 48)
   {
-    option = _getch() - 48;
+    return 0;
+  }
+  // check if getch is a number
+  else if (ch >= 49 && ch <= 57)
+  {
+    option = ch - 48;
   }
   else
   {
@@ -31,7 +29,7 @@ int SelectDialogueOption(int max)
   // check if the number is within the range
   if (option < 1 || option > max)
   {
-    throw Exception_Input_OutOfRange(" Error: [ " + std::to_string(option) + " ] is not a valid dialogue option.\n");
+    throw Exception_Input_OutOfRange(" Error: [ " + std::to_string(option) + " ] is not a valid option.\n");
   }
 
   return option;

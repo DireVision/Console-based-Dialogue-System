@@ -22,14 +22,8 @@
     <ClCompile Include="src\dialogue_manager.cpp" />
     <ClCompile Include="src\dialogue_node.cpp" />
     <ClCompile Include="src\Engine\file_manager.cpp" />
-    <ClCompile Include="src\Engine\frame_rate_controller.cpp" />
-    <ClCompile Include="src\Engine\input_manager.cpp" />
-    <ClCompile Include="src\Engine\renderer.cpp" />
-    <ClCompile Include="src\Engine\state_manager.cpp" />
     <ClCompile Include="src\entrypoint.cpp" />
     <ClCompile Include="src\dlg_parser.cpp" />
-    <ClCompile Include="src\States\game_state.cpp" />
-    <ClCompile Include="src\States\menu_state.cpp" />
     <ClCompile Include="src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,14 +32,7 @@
     <ClInclude Include="src\dlg_parser.h" />
     <ClInclude Include="src\Engine\file.h" />
     <ClInclude Include="src\Engine\file_manager.h" />
-    <ClInclude Include="src\Engine\frame_rate_controller.h" />
-    <ClInclude Include="src\Engine\input_manager.h" />
-    <ClInclude Include="src\Engine\keys.h" />
-    <ClInclude Include="src\Engine\renderer.h" />
-    <ClInclude Include="src\Engine\state_manager.h" />
-    <ClInclude Include="src\States\game_state.h" />
-    <ClInclude Include="src\States\state.h" />
-    <ClInclude Include="src\States\menu_state.h" />
+    <ClInclude Include="src\display.h" />
     <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

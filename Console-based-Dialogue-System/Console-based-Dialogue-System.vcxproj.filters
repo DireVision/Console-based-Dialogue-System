@@ -5,9 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="src\States">
-      <UniqueIdentifier>{5bc0d3e8-cc2b-4df6-84e9-b332c89279d8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Engine">
       <UniqueIdentifier>{a7394884-53e7-42d6-93be-defa581cbd13}</UniqueIdentifier>
     </Filter>
@@ -28,25 +25,7 @@
     <ClCompile Include="src\utils.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\States\menu_state.cpp">
-      <Filter>src\States</Filter>
-    </ClCompile>
-    <ClCompile Include="src\States\game_state.cpp">
-      <Filter>src\States</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\frame_rate_controller.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\state_manager.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\file_manager.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\input_manager.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\renderer.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,35 +42,14 @@
     <ClInclude Include="src\utils.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\States\state.h">
-      <Filter>src\States</Filter>
-    </ClInclude>
-    <ClInclude Include="src\States\menu_state.h">
-      <Filter>src\States</Filter>
-    </ClInclude>
-    <ClInclude Include="src\States\game_state.h">
-      <Filter>src\States</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\frame_rate_controller.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\file_manager.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\state_manager.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\file.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\input_manager.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\keys.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\renderer.h">
-      <Filter>src\Engine</Filter>
+    <ClInclude Include="src\display.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

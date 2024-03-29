@@ -48,22 +48,29 @@ namespace Engine
 
   std::filesystem::path FileManager::Browse()
   {
-    // Initialize a BROWSEINFO structure
-    BROWSEINFO bi = { 0 };
-    bi.lpszTitle = L"Select a directory";
-    LPITEMIDLIST pidl = SHBrowseForFolder(&bi);
+    // Initialize OPENFILENAME structure
+    OPENFILENAME ofn = { 0 };
+    wchar_t file_name[MAX_PATH] = L"";
 
-    // Convert the item ID list to a path
-    wchar_t path[MAX_PATH];
-    if (pidl != nullptr) {
-      SHGetPathFromIDList(pidl, path);
-      CoTaskMemFree(pidl);
+    std::wstring w_path = GetCurrentDirectoryPath().wstring();
+    wchar_t initialDir[MAX_PATH];
+    wcscpy_s(initialDir, w_path.c_str());
+
+    ofn.lStructSize = sizeof(ofn);
+    ofn.lpstrFilter = L"Dialog Files (*.dlg)\0*.dlg\0All Files (*.*)\0*.*\0";
+    ofn.lpstrFile = file_name;
+    ofn.lpstrTitle = L"Select a .dlg file";
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_EXPLORER;
+
+    // Show the dialog and get the selected file(s)
+    if (GetOpenFileName(&ofn))
+    {
+      // Do something with the selected file(s)
+      std::wcout << L"Selected file: " << file_name << std::endl;
     }
 
-    // Output the selected directory
-    std::wcout << L"Selected directory: " << path << std::endl;
-
-    return path;
+    return std::filesystem::path{ file_name };
   }
 
 }

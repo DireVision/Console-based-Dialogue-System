@@ -13,9 +13,6 @@
 #include <vector>
 #include <filesystem>
 
-extern bool g_running;
-void Exit();
-
 class Exception_Input_NaN : public std::exception
 {
   std::string message;
@@ -32,6 +29,6 @@ public:
   const char* what() const noexcept override { return message.c_str(); }
 };
 
-void PressAnyKeyToContinue();
-int SelectDialogueOption(int max = 9);
+bool WaitForInput();
+int SelectOption(int max = 9);
 void ClearScreen();

@@ -1,16 +1,17 @@
 #include "dialogue_manager.h"
 
 Document DialogueManager::current_dialogue;
+std::vector<File> DialogueManager::dialogue_files;
 
-//void DialogueManager::LoadDialogue(const std::string& filename)
-//{
-//  // load .dlg files
-//  FileManager::Load();
-//#ifdef _DEBUG
-//  std::cout << FileManager::Dump();
-//#endif
-//
-//  current_dialogue = DLG::Parse(FileManager::ReadFile(filename));
-//
-//
-//}
+std::vector<File>& DialogueManager::FilterDialogueFiles(const std::vector<File>& files)
+{
+  dialogue_files.clear();
+  for (const auto& file : files)
+  {
+    if (file.path.has_extension() && file.path.extension() == ".dlg")
+    {
+      dialogue_files.push_back(file);
+    }
+  }
+  return dialogue_files;
+}
