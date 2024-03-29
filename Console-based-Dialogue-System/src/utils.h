@@ -13,6 +13,10 @@
 #include <vector>
 #include <filesystem>
 
+extern std::string player_name;
+
+void Quit();
+
 class Exception_Input_NaN : public std::exception
 {
   std::string message;
@@ -32,3 +36,15 @@ public:
 bool WaitForInput();
 int SelectOption(int max = 9);
 void ClearScreen();
+
+class TextWrapper
+{
+  std::vector<std::string> lines;
+
+public:
+  // constructor to wrap the text
+  TextWrapper(const std::string& text, size_t line_length = 50);
+
+  // overloaded << operator to print the wrapped text
+  friend std::ostream& operator<<(std::ostream& os, const TextWrapper& wrapper);
+};

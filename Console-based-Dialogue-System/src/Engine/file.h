@@ -20,7 +20,11 @@ namespace Engine
       return " [ " + name + " ] " + path.string() + "\n";
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const File& file) { return os << file.ToString(); }
+    friend std::ostream& operator<<(std::ostream& os, const File& file)
+    {
+      return os << file.path.filename().string() << "\n";
+    }
+
     friend bool operator<(const File& lhs, const File& rhs) { return lhs.path < rhs.path; }
   };
 

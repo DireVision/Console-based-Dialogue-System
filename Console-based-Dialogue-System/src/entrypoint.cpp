@@ -28,7 +28,6 @@ int main()
 #endif
 
   FileManager dialogue_file;
-  Document current_dialogue;
   std::filesystem::path buffer_path;
   std::string buffer_string;
   int buffer_option = 0; // for option selection
@@ -43,24 +42,38 @@ int main()
     switch (current_state)
     {
     case STATE_TITLE:
-      Prompt::PressStartToPlay();
-      if (WaitForInput()) return 0;
+      // get player name
+      std::cout
+        << " (12 char limit)\n"
+        << " Enter your name: ";
+      std::getline(std::cin, player_name, '\n');
+
+      // input sanitization
+      // remove any special characters
+      player_name.erase(std::remove_if(player_name.begin(), player_name.end(), [](char c) { return !std::isalnum(c); }), player_name.end());
+      // don't allow more than 12 characters
+      if (player_name.length() > 12)
+      {
+        player_name = player_name.substr(0, 12);
+      }
+
       current_state = STATE_MENU;
       break;
 
     case STATE_MENU:
-      Screen::MainMenu();
+      buffer_count = Screen::MainMenu();
       Prompt::PickAMenuOption();
 
       try
       {
-        buffer_option = SelectOption();
+        buffer_option = SelectOption(buffer_count);
       }
       catch (const std::exception& e)
       {
         std::cout << e.what();
+        buffer_option = -1;
         Prompt::PressAnyKeyToContinue();
-        if (WaitForInput()) return 0;
+        if (WaitForInput()) Quit();
       }
 
       switch (buffer_option)
@@ -70,12 +83,14 @@ int main()
         break;
       case 2:
         buffer_path = FileManager::Browse();
-        current_dialogue = DLG::Parse(buffer_path);
+        DialogueManager::LoadDialogue(buffer_path);
         current_state = STATE_PLAY;
         break;
       case 3:
       case 0:
-        current_state = STATE_EXIT;
+        Quit();
+        break;
+      default:
         break;
       }
 
@@ -90,7 +105,7 @@ int main()
       {
         std::cout << " No dialogue files found in the assets folder.\n";
         Prompt::PressAnyKeyToContinue();
-        if (WaitForInput()) return 0;
+        if (WaitForInput()) Quit();
         current_state = STATE_MENU;
       }
 
@@ -99,32 +114,32 @@ int main()
       try
       {
         buffer_option = SelectOption(buffer_count);
-        if (buffer_option == 0) return 0;
       }
       catch (const std::exception& e)
       {
         std::cout << e.what();
+        buffer_option = -1;
         Prompt::PressAnyKeyToContinue();
-        if (WaitForInput()) return 0;
+        if (WaitForInput()) Quit();
       }
 
-      current_dialogue = DLG::Parse(DialogueManager::GetDialogueFiles()[buffer_option - 1].path);
-      current_state = STATE_PLAY;
+      if (buffer_option == 0)
+      {
+        Quit();
+      }
+      else if (buffer_option > 0 && buffer_option < buffer_count)
+      {
+        DialogueManager::LoadDialogue(DialogueManager::GetDialogueFiles()[buffer_option - 1].path);
+        current_state = STATE_PLAY;
+      }
       break;
 
     case STATE_PLAY:
-      buffer_string = current_dialogue.GetArray()[0].GetObject()["name"].GetString();
-      std::cout << buffer_string;
-
-      Prompt::PressAnyKeyToContinue();
-      if (WaitForInput()) return 0;
-
+      DialogueManager::StartDialogue();
+      if (DialogueManager::Play()) Quit();
+      DialogueManager::EndDialogue();
       current_state = STATE_MENU;
-
-      //DialogueManager::StartDialogue();
       break;
-    case STATE_EXIT:
-      return 0;
     }
   }
 

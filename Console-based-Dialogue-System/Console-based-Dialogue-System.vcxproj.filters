@@ -28,6 +28,9 @@
     <ClCompile Include="src\Engine\file_manager.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\display.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\dialogue_manager.h">

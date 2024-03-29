@@ -1,32 +1,91 @@
-[
-  {
-    "name": "Jeremy",
-    "dialogue": [
-      {
-        "option": 0,
-        "text": "Hey there!",
-        "goto": 0
-      },
-      {
-        "option": 1,
-        "text": "Hey.",
-        "goto": 3
-      },
-      {
-        "option": 2,
-        "text": "Nice to meet you!",
-        "goto": 3
-      },
-      {
-        "option": 0,
-        "text": "I've never seen you around before.",
-        "goto": 0
-      },
-      {
-        "option": 0,
-        "text": "What's your name?",
-        "goto": 0
-      }
-    ]
-  }
-]
+{
+  "speakers": [
+    "Jeremy"
+  ],
+  "dialogue": [
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Hey there!",
+      "goto": 1
+    },
+    {
+      "option": 0,
+      "speaker": -1,
+      "text": "A student waves at you from behind his locker door.",
+      "goto": 2
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "I'm Jeremy.",
+      "goto": 3
+    },
+    {
+      "option": 1,
+      "speaker": 0,
+      "text": "Nice to meet you!",
+      "goto": 4
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "I've never seen you around before.",
+      "goto": 5
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Are you a transfer student?",
+      "goto": 6
+    },
+    {
+      "option": 1,
+      "speaker": 0,
+      "text": "No I'm not.",
+      "goto": 9
+    },
+    {
+      "option": 2,
+      "speaker": 0,
+      "text": "No...?",
+      "goto": 9
+    },
+    {
+      "option": 3,
+      "speaker": 0,
+      "text": "Yeah I am.",
+      "goto": 11
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Oh sorry.",
+      "goto": 10
+    },
+    {
+      "option": 0,
+      "speaker": -1,
+      "text": "Jeremy walks away embarrassingly.",
+      "goto": -1
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Woah that's cool! Can chat over lunch?",
+      "goto": 12
+    },
+    {
+      "option": 0,
+      "speaker": 0,
+      "text": "No thanks, I gotta bounce for class anyways.",
+      "goto": 13
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Alright, see you around.",
+      "goto": -1
+    }
+  ]
+}

@@ -18,6 +18,7 @@ namespace Engine
     ASSERT(std::filesystem::exists(directory), "Directory does not exist!");
 
     // get all files in assets folder
+    files.clear();
     for (const auto& entry : std::filesystem::directory_iterator(directory))
     {
       files.push_back({ entry.path().stem().string(), entry.path() });
