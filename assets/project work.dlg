@@ -1,0 +1,68 @@
+{
+  "speakers": [
+    "Tom",
+    "Elena"
+  ],
+  "dialogue": [
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Hey Elena!",
+      "goto": 1
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Have you heard about the new project?",
+      "goto": 2
+    },
+    {
+      "option": 0,
+      "speaker": 2,
+      "text": "Oh, hey Tom! Yeah, I heard about it. Sounds pretty exciting, doesn't it?",
+      "goto": 3
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Definitely! I think it's going to be a game-changer for our team.",
+      "goto": 4
+    },
+    {
+      "option": 0,
+      "speaker": 2,
+      "text": "I agree. But you know, I've been thinking about some potential challenges we might face during implementation.",
+      "goto": 5
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Really? Like what?",
+      "goto": 6
+    },
+    {
+      "option": 0,
+      "speaker": 2,
+      "text": "Well, for starters, I'm concerned about the tight deadline. We need to make sure we allocate enough time for testing and debugging.",
+      "goto": 7
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Hmm, you're right. That could be tricky. But I'm confident we can pull it off if we work together and stay focused.",
+      "goto": 8
+    },
+    {
+      "option": 0,
+      "speaker": 2,
+      "text": "Yeah, you're probably right. It's just... I can't shake this feeling of apprehension.",
+      "goto": 9
+    },
+    {
+      "option": 0,
+      "speaker": 1,
+      "text": "Hey, don't worry too much. We've faced tough deadlines before, and we've always managed to deliver quality work.",
+      "goto": -1
+    }
+  ]
+}
