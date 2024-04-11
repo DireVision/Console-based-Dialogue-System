@@ -127,7 +127,7 @@ int main()
       {
         Quit();
       }
-      else if (buffer_option > 0 && buffer_option < buffer_count)
+      else if (buffer_option > 0 && buffer_option <= buffer_count)
       {
         DialogueManager::LoadDialogue(DialogueManager::GetDialogueFiles()[buffer_option - 1].path);
         current_state = STATE_PLAY;
